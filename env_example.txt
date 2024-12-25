@@ -1,0 +1,11 @@
+    SQL_USER =
+    SQL_PASSWORD =
+    SQL_SERVER =
+    SQL_DB =
+    SQL_SERVER_PORT =
+    SQL_ENCRYPT =
+    SQL_TRUST_SERVER_CERTIFICATE =
+    API_PORT =
+    JWT_SECRET =
+    Email =
+    PASSWORD =
