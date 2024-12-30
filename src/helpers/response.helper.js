@@ -6,6 +6,10 @@ export const dataFound = (res, data, message) => {
     return res.status(200).json({ Message: message, data });
 };
 
+export const sendJsonSuccess = (res, object) => {
+    return res.status(200).json({ Response: object });
+};
+
 export const sendDeleteSuccess = (res, message) => {
     return res.status(200).json({ Message: message });
 };
@@ -54,8 +58,8 @@ export const sendServerError = (res, message) => {
     return res.status(500).json({ Message: message });
 };
 
-export const serverHealthError = (res, object) => {
-    return res.status(500).json(object);
+export const serverJsonError = (res, object) => {
+    return res.status(500).json({Response: object});
 };
 
 export const notImplemented = (res, message) => {
