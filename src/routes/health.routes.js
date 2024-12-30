@@ -4,7 +4,7 @@ import fs from "fs";
 
 import { formatDate } from "../helpers/dateFunction.js";
 import { sendJsonSuccess, serverJsonError, successMessage } from "../helpers/response.helper.js";
-import { getDbHealth } from "../controllers/dbHealth.controllers.js";
+import { getDbHealth, getMailerHealth } from "../controllers/dbHealth.controllers.js";
 
 dotenv.config();
 
@@ -59,5 +59,7 @@ healthRouter.get("/server/uptime", (req, res) => {
 });
 
 healthRouter.get("/database/health", getDbHealth);
+
+healthRouter.get("/mailer/health", getMailerHealth);
 
 export default healthRouter;
