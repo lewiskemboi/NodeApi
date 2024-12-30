@@ -1,12 +1,11 @@
-import { serverHealthError } from "../helpers/response.helper.js";
+import { sendJsonSuccess, serverJsonError } from "../helpers/response.helper.js";
 import { checkDbConnection } from "../services/dbHealth.services.js";
 
 export const getDbHealth = async (req, res) => {
     try {
         const healthStatus = await checkDbConnection();
-        const statusCode = healthStatus.status === 'healthy' ? 200 : 500;
-        res.status(statusCode).json(healthStatus);
+        healthStatus.status === 'healthy' ? sendJsonSuccess(res, healthStatus) : serverJsonError(res, healthStatus);
     } catch (error) {
-        serverHealthError(res, { isError: 'unhealthy', message: 'Unexpected error', error: error.message })
+        serverJsonError(res, { isError: 'unhealthy', message: 'Unexpected error', error: error.message })
     }
 };
